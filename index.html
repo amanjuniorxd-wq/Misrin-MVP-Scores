@@ -5,14 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Who Is the Real MVP? – Unbiased Sports Rankings</title>
   <style>
-    /*
-     * Base typography and colours
-     *
-     * The site uses a strictly black and white palette to keep the focus
-     * on the data. Generous spacing and larger type sizes are used to
-     * improve readability. On wider screens the layout remains centred
-     * with a comfortable maximum width for long form content.
-     */
     :root {
       --bg-colour: #111;
       --fg-colour: #f6f6f6;
@@ -107,6 +99,17 @@
     tr:nth-child(even) {
       background: #1a1a1a;
     }
+    /* Fixed image in bottom-left */
+    .corner-image {
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      width: 120px;   /* adjust size */
+      height: auto;
+      opacity: 0.9;
+      border: 2px solid #555;
+      border-radius: 6px;
+    }
     /* Responsive adjustments */
     @media (max-width: 600px) {
       header h1 {
@@ -160,6 +163,10 @@
       combination of productivity and efficiency.
     </p>
   </main>
+
+  <!-- Fixed corner image -->
+  <img src="mvp.png" alt="MVP Illustration" class="corner-image">
+
   <script src="script.js"></script>
 </body>
 </html>
