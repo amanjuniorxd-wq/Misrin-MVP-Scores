@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Who Is the Real MVP? – Unbiased Sports Rankings</title>
+  <style>
+    /*
+     * Base typography and colours
+     *
+     * The site uses a strictly black and white palette to keep the focus
+     * on the data. Generous spacing and larger type sizes are used to
+     * improve readability. On wider screens the layout remains centred
+     * with a comfortable maximum width for long form content.
+     */
+    :root {
+      --bg-colour: #111;
+      --fg-colour: #f6f6f6;
+      --accent-colour: #fff;
+      --muted-colour: #777;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      background: var(--bg-colour);
+      color: var(--fg-colour);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      padding: 2rem 1rem;
+      background: #000;
+      color: var(--accent-colour);
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: 2rem;
+    }
+    header p {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--muted-colour);
+    }
+    main {
+      flex: 1;
+      padding: 2rem 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .controls {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .sport-button {
+      background: #222;
+      color: var(--fg-colour);
+      border: 1px solid #555;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s, color 0.3s;
+    }
+    .sport-button:hover,
+    .sport-button:focus {
+      background: var(--accent-colour);
+      color: #000;
+    }
+    .sport-button.active {
+      background: var(--accent-colour);
+      color: #000;
+      font-weight: bold;
+    }
+    #searchInput {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 1.5rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid #555;
+      border-radius: 4px;
+      font-size: 1rem;
+      background: #000;
+      color: var(--fg-colour);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    th,
+    td {
+      padding: 0.75rem;
+      border: 1px solid #333;
+    }
+    th {
+      background: #222;
+      text-align: left;
+    }
+    tr:nth-child(even) {
+      background: #1a1a1a;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      #searchInput {
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        padding: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Who Is the Real MVP?</h1>
+    <p>Unbiased rankings based solely on performance records</p>
+  </header>
+  <main>
+    <p>
+      In sports conversations the phrase <em>“most valuable player”</em> often
+      becomes a popularity contest. Here we strip away nostalgia, fame and
+      personality and look strictly at the numbers. Choose a sport below and
+      explore who truly stands out on the field based on raw performance.
+    </p>
+    <div class="controls">
+      <button class="sport-button active" data-sport="cricket">Cricket</button>
+      <button class="sport-button" data-sport="nba">NBA</button>
+      <button class="sport-button" data-sport="mlb">MLB</button>
+      <button class="sport-button" data-sport="football">Football</button>
+    </div>
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search by name or minimum MVP score..."
+    />
+    <table>
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>MVP Score</th>
+        </tr>
+      </thead>
+      <tbody id="playerTableBody"></tbody>
+    </table>
+    <p style="font-size: 0.9rem; color: var(--muted-colour);">
+      MVP formulas are customised for each sport and normalised for fair
+      comparison within categories. A higher score reflects a better
+      combination of productivity and efficiency.
+    </p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
